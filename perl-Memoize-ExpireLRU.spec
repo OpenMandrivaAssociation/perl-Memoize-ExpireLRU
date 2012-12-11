@@ -1,19 +1,19 @@
 %define upstream_name    Memoize-ExpireLRU
 %define upstream_version 0.55
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Provide LRU Expiration for Memoize
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Memoize/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Provide LRU Expiration for Memoize
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Memoize/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Memoize)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Memoize)
+BuildArch:	noarch
 
 %description
 For the theory of Memoization, please see the Memoize module documentation.
@@ -25,24 +25,29 @@ argument to the 'CACHESIZE' parameter, will be cached.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 0.550.0-2mdv2011.0
++ Revision: 655045
+- rebuild for updated spec-helper
+
+* Wed Apr 07 2010 Jérôme Quelin <jquelin@mandriva.org> 0.550.0-1mdv2011.0
++ Revision: 532701
+- import perl-Memoize-ExpireLRU
 
 
+* Wed Apr 07 2010 cpan2dist 0.55-1mdv
+- initial mdv release, generated with cpan2dist
