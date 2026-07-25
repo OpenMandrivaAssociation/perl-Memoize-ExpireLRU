@@ -1,15 +1,15 @@
 %define upstream_name    Memoize-ExpireLRU
-%define upstream_version 0.55
+%define upstream_version 0.56
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	Provide LRU Expiration for Memoize
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Memoize/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://github.com/neilb/Memoize-ExpireLRU
+Source0:	https://cpan.metacpan.org/authors/id/N/NE/NEILB/Memoize-ExpireLRU-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
