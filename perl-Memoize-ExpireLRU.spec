@@ -1,15 +1,13 @@
 %define upstream_name    Memoize-ExpireLRU
-%define upstream_version 0.56
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	0.56
+Release:	2
 
 Summary:	Provide LRU Expiration for Memoize
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://github.com/neilb/Memoize-ExpireLRU
-Source0:	https://cpan.metacpan.org/authors/id/N/NE/NEILB/Memoize-ExpireLRU-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/N/NE/NEILB/Memoize-ExpireLRU-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -23,7 +21,7 @@ semantics, that is, the last n results, where n is specified as the
 argument to the 'CACHESIZE' parameter, will be cached.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
