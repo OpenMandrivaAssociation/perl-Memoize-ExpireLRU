@@ -1,13 +1,14 @@
 %define upstream_name    Memoize-ExpireLRU
+%define upstream_version 0.56
 Name:		perl-%{upstream_name}
 Version:	0.56
-Release:	2
+Release:	1
 
 Summary:	Provide LRU Expiration for Memoize
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://github.com/neilb/Memoize-ExpireLRU
-Source0:	https://cpan.metacpan.org/authors/id/N/NE/NEILB/Memoize-ExpireLRU-%{version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/N/NE/NEILB/Memoize-ExpireLRU-0.56.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -38,15 +39,3 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
 
-%changelog
-* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 0.550.0-2mdv2011.0
-+ Revision: 655045
-- rebuild for updated spec-helper
-
-* Wed Apr 07 2010 Jérôme Quelin <jquelin@mandriva.org> 0.550.0-1mdv2011.0
-+ Revision: 532701
-- import perl-Memoize-ExpireLRU
-
-
-* Wed Apr 07 2010 cpan2dist 0.55-1mdv
-- initial mdv release, generated with cpan2dist
